@@ -12,11 +12,6 @@ button.add-new-note {
   background-color: burlywood;
 }
 
-section.notes-list {
-  background-color: blueviolet;
-  grid-area: notes-list;
-}
-
 button.add-new-note {
   /* box-sizing: content-box; */
   cursor: pointer;
@@ -71,7 +66,7 @@ input.search-placeholder {
   background-color: transparent;
   outline: none;
   border: none;
-  padding-left: 0.3em;
+  padding-left: 0.9em;
   color: var(--text);
   opacity: 0.7;
 }
@@ -109,4 +104,70 @@ button.search-submit:after {
   transform-origin: 2px;
   transform: rotate(-45deg);
   border-bottom: var(--btn-line-h) solid var(--btn-line-color);
+}
+
+/* notes list */
+
+section.notes-list {
+  grid-area: notes-list;
+  overflow-y: auto;
+}
+
+article.note-item:not(:last-of-type) {
+  margin-bottom: 1.2em;
+}
+
+article.note-item {
+  height: 100px;
+  max-height: 150px;
+  display: grid;
+  grid-template-rows: 1em auto 1fr;
+  grid-template-columns: 0.6em 1fr 40px 0.6em;
+}
+
+article.note-item:before {
+  content: "";
+  background-color: rgb(102, 168, 37);
+  grid-area: 1 / 1 / 2 / -1;
+}
+
+article.note-item:after {
+  content: "";
+  background-color: var(--textarea);
+  grid-area: 2 / 2 / 4 / -2;
+}
+
+article.note-item > .created-date {
+  grid-area: 2 / 2 / 3 / -2;
+  z-index: 1;
+  padding: 4px 8px;
+  text-align: right;
+  opacity: 0.7;
+}
+
+article.note-item > p {
+  grid-area: 3 / 2 / 4 / -3;
+  z-index: 1;
+  padding: 0.5em 1em;
+}
+
+article.note-item > .corner {
+  grid-area: 3 / 3 / span 1 / span 1;
+  height: 40px;
+  align-self: end;
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--corner);
+  border-top-left-radius: var(--border-r-l);
+}
+
+article.note-item > .corner:before {
+  position: absolute;
+  content: "";
+  height: 50px;
+  width: 60px;
+  background-color: var(--primary);
+  transform-origin: 50px 23px;
+  transform: rotate(-45deg);
 }

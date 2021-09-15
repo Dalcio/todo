@@ -8,6 +8,7 @@
   --btn-line-color: #858585;
   /* sizes */
   --border-r-md: 5px;
+  --border-r-l: 8px;
   --btn-line-h: 2px;
   --btn-w-md: 28px;
   --btn-h-md: 28px;
@@ -23,13 +24,22 @@
 }
 
 body {
-  height: 100vh;
   background-color: var(--bg-color);
   color: var(--text);
 }
 
+.page-container {
+  height: 100vh;
+}
+
 @media (min-width: 700px) {
   body {
+    display: grid;
+    grid-template-columns: auto minmax(700px, 1140px) auto;
+  }
+  
+  .page-container {
+    grid-column: 2 / 3;
     display: grid;
     grid-template-columns: minmax(auto, 350px) 1fr;
   }

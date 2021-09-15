@@ -5,6 +5,10 @@ main {
   height: 100%;
 }
 
+aside.notes-container {
+  height: calc(100vh - 2rem);
+}
+
 aside.notes-container,
 header {
   background-color: var(--primary);

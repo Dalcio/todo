@@ -15,52 +15,116 @@
 
   <body>
     <div class="pane"></div>
-    <aside class="notes-container">
-      <button
-        aria-placeholder="+"
-        aria-label="add-new-note"
-        class="add-new-note"
-      ></button>
-      <form role="searchbox" class="searchbox">
-        <input
-          type="text"
-          name="search"
-          role="search"
-          id="search-placeholder"
-          class="search-placeholder"
-          aria-label="search field"
-        />
+    <div class="page-container">
+      <aside class="notes-container">
         <button
-          aria-placeholder="search button"
-          aria-label="search a note button"
-          class="search-submit"
+          aria-placeholder="+"
+          aria-label="add-new-note"
+          class="add-new-note"
         ></button>
-      </form>
-      <section role="list" aria-label="notes list" class="notes-list">
-        <h2>Tasks</h2>
-      </section>
-    </aside>
-    <main role="main">
-      <header class="tools header">
-        <section class="text-tools">
-          <h1>task settings</h1>
+        <form role="searchbox" class="searchbox">
+          <input
+            type="text"
+            name="search"
+            role="search"
+            id="search-placeholder"
+            class="search-placeholder"
+            aria-label="search field"
+            placeholder="Search..."
+          />
+          <button
+            aria-placeholder="search button"
+            aria-label="search a note button"
+            class="search-submit"
+          ></button>
+        </form>
+        <section role="list" aria-label="notes list" class="notes-list">
+          <article class="note-item">
+            <div aria-label="created date" class="created-date">
+              created date
+            </div>
+            <p>Some tasks</p>
+            <div class="corner"></div>
+          </article>
+          <article class="note-item">
+            <div aria-label="created date" class="created-date">
+              created date
+            </div>
+            <p>Some tasks</p>
+            <div class="corner"></div>
+          </article>
+          <article class="note-item">
+            <div aria-label="created date" class="created-date">
+              created date
+            </div>
+            <p>Some tasks</p>
+            <div class="corner"></div>
+          </article>
+          <article class="note-item">
+            <div aria-label="created date" class="created-date">
+              created date
+            </div>
+            <p>Some tasks</p>
+            <div class="corner"></div>
+          </article>
+          <article class="note-item">
+            <div aria-label="created date" class="created-date">
+              created date
+            </div>
+            <p>Some tasks</p>
+            <div class="corner"></div>
+          </article>
+          <article class="note-item">
+            <div aria-label="created date" class="created-date">
+              created date
+            </div>
+            <p>Some tasks</p>
+            <div class="corner"></div>
+          </article>
+          <article class="note-item">
+            <div aria-label="created date" class="created-date">
+              created date
+            </div>
+            <p>Some tasks</p>
+            <div class="corner"></div>
+          </article>
+          <article class="note-item">
+            <div aria-label="created date" class="created-date">
+              created date
+            </div>
+            <p>Some tasks</p>
+            <div class="corner"></div>
+          </article>
+          <article class="note-item">
+            <div aria-label="created date" class="created-date">
+              created date
+            </div>
+            <p>Some tasks</p>
+            <div class="corner"></div>
+          </article>
         </section>
-        <button
-          show="false"
-          class="toggle"
-          role="button"
-          aria-label="menu button"
-        ></button>
-      </header>
-      <div
-        name="task"
-        contenteditable
-        class="textarea"
-        id="task"
-        spellcheck="true"
-      ></div>
-    </main>
-
+      </aside>
+      <main role="main">
+        <header class="tools header">
+          <section class="text-tools">
+            <h1>task settings</h1>
+          </section>
+          <button
+            show="false"
+            class="toggle"
+            role="button"
+            aria-label="menu button"
+          ></button>
+        </header>
+        <div
+          name="task"
+          contenteditable
+          class="textarea"
+          id="task"
+          spellcheck="true"
+        ></div>
+      </main>
+    </div>
     <script src="./js/toggle.js"></script>
   </body>
 </html>
