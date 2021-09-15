@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="a to do task list">
-    <meta name="author" content="Dálcio Macuete Garcia">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="a to do task list" />
+    <meta name="author" content="Dálcio Macuete Garcia" />
     <title>To do</title>
-    <link rel="stylesheet" href="./css/layout.css">
-</head>
-<style>
-</style>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/notes-list-styles.css" />
+  </head>
+  <style></style>
 
-<body>
+  <body>
     <div class="pane"></div>
-    <aside class="notes-list">
-        <h2>Note Lists</h2>
+    <aside class="notes-container">
+      <button
+        aria-placeholder="+"
+        aria-label="add-new-note"
+        class="add-new-note"
+      ></button>
+      <form role="searchbox" class="searchbox">
+        <input
+          type="text"
+          name="search"
+          role="search"
+          id="search"
+          aria-label="search field"
+        />
+        <button
+          aria-placeholder="search button"
+          aria-label="search a note button"
+        ></button>
+      </form>
+      <section role="list" aria-label="notes list" class="notes-list">
+        <h2>Tasks</h2>
+      </section>
     </aside>
     <main role="main">
-        <header class="tools">
-            <h1>task settings</h1>
-        </header>
-        <div name="task" contenteditable class="textarea" id="task" spellcheck="true" ></div>
+      <header class="tools">
+        <h1>task settings</h1>
+      </header>
+      <div
+        name="task"
+        contenteditable
+        class="textarea"
+        id="task"
+        spellcheck="true"
+      ></div>
     </main>
     <button show="false" class="toggle" role="button" aria-label="menu button">
-        <div></div>
-        <div></div>
+      <div></div>
+      <div></div>
     </button>
     <script src="./js/toggle.js"></script>
-</body>
-
+  </body>
 </html>

@@ -1,0 +1,20 @@
+:root {
+  --primary: #222222;
+  --textarea: #333333;
+  --corner: #5c5c5c;
+  --bg-color: #3f3f3f;
+  --text: #ffffff;
+  --border-r-md: 5px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text);
+}

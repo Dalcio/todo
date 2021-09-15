@@ -7,7 +7,7 @@
     pane.addEventListener("click", handleToggle)
 
     function handleToggle() {
-        const noteList = document.querySelector("aside.notes-list");
+        const noteList = document.querySelector("aside.notes-container");
         if (toggle.getAttribute("show") === "false") {
             noteList.style.display = "flex"
             noteList.style.animation = "left-right 0.6s ease"
