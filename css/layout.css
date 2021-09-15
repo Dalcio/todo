@@ -11,6 +11,7 @@ main {
 
 header {
   background-color: var(--primary);
+  padding: 1em;
 }
 
 .textarea {
@@ -25,10 +26,7 @@ header {
   border-radius: var(--border-r-md);
 }
 
-button.toggle {
-  display: none;
-}
-
+button.toggle,
 .pane {
   display: none;
 }
@@ -59,6 +57,41 @@ button.toggle {
     }
   }
 
+  header.tools {
+    display: grid;
+    grid-template-columns: 1fr 28px;
+    box-shadow: 0px 2px 3px var(--primary);
+  }
+
+  button.toggle {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    z-index: 1;
+    padding: 0;
+    border: none;
+    background: none;
+  }
+
+  button.toggle:after,
+  button.toggle:before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background-color: #858585;
+    transform-origin: center;
+    transition: transform 0.6s ease;
+  }
+
+  button.toggle[show="true"]:before {
+    transform: translateY(200%) rotate(45deg);
+  }
+
+  button.toggle[show="true"]:after {
+    transform: translateY(-200%) rotate(-45deg);
+  }
+
   aside.notes-container {
     position: absolute;
     display: none;
@@ -86,56 +119,16 @@ button.toggle {
     }
   }
 
-  button.toggle {
-    cursor: pointer;
-    position: fixed;
-    z-index: 1;
-    display: flex;
-    border-radius: 3px;
-    flex-direction: column;
-    top: 0.8rem;
-    right: 1rem;
-    height: 36px;
-    padding: 0 0.5em 0 0.6em;
-    border: none;
-    justify-content: space-evenly;
-    background: none;
-  }
-
   .textarea {
     margin: 0 1em;
-  }
-
-  button.toggle > * {
-    width: 30px;
-    height: 3px;
-    background-color: #787878;
-    transition: transform 0.6s ease;
-  }
-
-  button.toggle[show="true"] > *:first-child {
-    transform: translate(0%, 200%) rotate(45deg);
-  }
-
-  button.toggle[show="true"] > *:last-child {
-    transform: translate(0%, -200%) rotate(-45deg);
-  }
-
-  header.tools {
-    box-shadow: 0px 2px 3px var(--primary);
   }
 }
 
 @media (min-width: 700px) {
-  body {
-    display: grid;
-    grid-template-columns: minmax(auto, 350px) 1fr;
-  }
-
   aside.notes-container {
     margin: 1em 0 1em 1em;
     grid-column: 1 / span 1;
-    display: flex !important;
+    display: grid !important;
   }
 
   aside.notes-container,

@@ -18,3 +18,10 @@ body {
   background-color: var(--bg-color);
   color: var(--text);
 }
+
+@media (min-width: 700px) {
+  body {
+    display: grid;
+    grid-template-columns: minmax(auto, 350px) 1fr;
+  }
+}

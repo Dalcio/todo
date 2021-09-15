@@ -9,7 +9,7 @@
     function handleToggle() {
         const noteList = document.querySelector("aside.notes-container");
         if (toggle.getAttribute("show") === "false") {
-            noteList.style.display = "flex"
+            noteList.style.display = "grid"
             noteList.style.animation = "left-right 0.6s ease"
             pane.style.animation = "bg 0.6s ease"
             pane.style.display = "block";
