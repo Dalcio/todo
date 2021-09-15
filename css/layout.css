@@ -1,23 +1,20 @@
-aside.notes-container {
-  background-color: var(--primary);
-}
-
 main {
   display: grid;
   grid-template-rows: 60px 1fr;
-  row-gap: 1em;
+  row-gap: var(--s-md-e);
   height: 100%;
 }
 
+aside.notes-container,
 header {
   background-color: var(--primary);
-  padding: 1em;
+  padding: var(--s-md-e);
 }
 
 .textarea {
   border: none;
   color: var(--text);
-  padding: 1em;
+  padding: var(--s-md-e);
   background-color: var(--textarea);
   resize: none;
   outline: none;
@@ -77,10 +74,10 @@ button.toggle,
   button.toggle:after,
   button.toggle:before {
     content: "";
-    width: 28px;
-    height: 2px;
-    background-color: #858585;
-    transform-origin: center;
+    width: var(--btn-w-md);
+    height: var(--btn-line-h);
+    background-color: var(--btn-line-color);
+    /* transform-origin: center; */
     transition: transform 0.6s ease;
   }
 
@@ -120,15 +117,15 @@ button.toggle,
   }
 
   .textarea {
-    margin: 0 1em;
+    margin: 0 var(--s-md-e);
   }
 }
 
 @media (min-width: 700px) {
   aside.notes-container {
-    margin: 1em 0 1em 1em;
     grid-column: 1 / span 1;
     display: grid !important;
+    margin: var(--s-md-e) 0 var(--s-md-e) var(--s-md-e);
   }
 
   aside.notes-container,
@@ -139,6 +136,6 @@ button.toggle,
 
   main {
     grid-column: 2 / -1;
-    padding: 1em;
+    padding: var(--s-md-e);
   }
 }

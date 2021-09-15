@@ -1,0 +1,112 @@
+.notes-container {
+  grid-template-rows: 28px 40px 1fr;
+  grid-template-areas:
+    "new-note"
+    "search"
+    "notes-list";
+  gap: 1em;
+}
+
+button.add-new-note {
+  grid-area: new-note;
+  background-color: burlywood;
+}
+
+section.notes-list {
+  background-color: blueviolet;
+  grid-area: notes-list;
+}
+
+button.add-new-note {
+  /* box-sizing: content-box; */
+  cursor: pointer;
+  width: var(--btn-w-md);
+  height: var(--btn-h-md);
+  background: none;
+  position: relative;
+  padding: 0;
+  border: none;
+}
+
+button.add-new-note:before,
+button.add-new-note:after {
+  position: absolute;
+  content: "";
+}
+
+button.add-new-note:before {
+  /* vertical rule*/
+  right: calc(50% - (var(--btn-line-h) / 2));
+  top: 0;
+  bottom: 0;
+  border-right: var(--btn-line-h) solid var(--btn-line-color);
+}
+
+button.add-new-note:after {
+  /* horizontal rule*/
+  left: 0;
+  right: 0;
+  bottom: calc(50% - (var(--btn-line-h) / 2));
+  border-bottom: var(--btn-line-h) solid var(--btn-line-color);
+}
+
+button.add-new-note:hover:before {
+  transform: scaleX(1.5);
+}
+
+button.add-new-note:hover:after {
+  transform: scaleY(1.5);
+}
+
+/** searchbox **/
+
+form.searchbox {
+  grid-area: search;
+  background-color: var(--textarea);
+  display: grid;
+  grid-template-columns: 1fr 40px;
+}
+
+input.search-placeholder {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding-left: 0.3em;
+  color: var(--text);
+  opacity: 0.7;
+}
+
+button.search-submit {
+  cursor: pointer;
+  border: none;
+  position: relative;
+  background-color: transparent;
+  padding: 0;
+  transition: background-color 0.3s;
+}
+
+button.search-submit:hover {
+  background-color: rgba(133, 133, 133, 0.5);
+}
+
+button.search-submit:before {
+  position: absolute;
+  content: "";
+  top: 8px;
+  right: 8px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: var(--btn-line-h) solid var(--btn-line-color);
+}
+
+button.search-submit:after {
+  position: absolute;
+  content: "";
+  width: 12px;
+  bottom: 8px;
+  left: 8px;
+  transform-origin: 2px;
+  transform: rotate(-45deg);
+  border-bottom: var(--btn-line-h) solid var(--btn-line-color);
+}
