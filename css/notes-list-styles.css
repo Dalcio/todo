@@ -122,10 +122,21 @@ article.note-item {
   display: grid;
   grid-template-rows: 1em auto 1fr;
   grid-template-columns: 0.6em 1fr 40px 0.6em;
+  animation: show-note-item 0.4s ease-in-out;
 }
 
-article.note-item:before {
-  content: "";
+@keyframes show-note-item {
+  from {
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+  to {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+}
+
+article.note-item > .top-border {
   background-color: rgb(102, 168, 37);
   grid-area: 1 / 1 / 2 / -1;
 }
