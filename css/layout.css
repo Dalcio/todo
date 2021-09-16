@@ -9,8 +9,7 @@ aside.notes-container {
   height: calc(100vh - 2rem);
 }
 
-aside.notes-container,
-header {
+aside.notes-container {
   background-color: var(--primary);
   padding: var(--s-md-e);
 }
@@ -25,6 +24,7 @@ header {
   cursor: text;
   box-shadow: 0px 0px 3px var(--textarea);
   border-radius: var(--border-r-md);
+  border-top: 4px solid rgb(102, 168, 37);
 }
 
 button.toggle,
@@ -59,8 +59,7 @@ button.toggle,
   }
 
   header.tools {
-    display: grid;
-    grid-template-columns: 1fr 28px;
+    padding: 0 var(--s-md-e);
     box-shadow: 0px 2px 3px var(--primary);
   }
 

@@ -6,6 +6,7 @@
   --bg-color: #3f3f3f;
   --text: #ffffff;
   --btn-line-color: #858585;
+  --btn-bg-opc: rgba(133, 133, 133, 0.5);
   /* sizes */
   --border-r-md: 5px;
   --border-r-l: 8px;
@@ -37,7 +38,7 @@ body {
     display: grid;
     grid-template-columns: auto minmax(700px, 1140px) auto;
   }
-  
+
   .page-container {
     grid-column: 2 / 3;
     display: grid;

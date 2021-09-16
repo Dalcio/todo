@@ -13,7 +13,6 @@ button.add-new-note {
 }
 
 button.add-new-note {
-  /* box-sizing: content-box; */
   cursor: pointer;
   width: var(--btn-w-md);
   height: var(--btn-h-md);
@@ -81,7 +80,7 @@ button.search-submit {
 }
 
 button.search-submit:hover {
-  background-color: rgba(133, 133, 133, 0.5);
+  background-color: var(--btn-bg-opc);
 }
 
 button.search-submit:before {
@@ -170,4 +169,106 @@ article.note-item > .corner:before {
   background-color: var(--primary);
   transform-origin: 50px 23px;
   transform: rotate(-45deg);
+}
+
+/* text tools */
+
+header.tools {
+  display: grid;
+  background-color: var(--primary);
+  grid-template-columns: 1fr 28px;
+  box-shadow: 0px 2px 3px var(--primary);
+  padding: 0 var(--s-md-e);
+}
+
+.text-tools {
+  display: grid;
+  grid-template-columns: repeat(3, 30px) 50px 30px;
+  grid-template-rows: auto 30px auto;
+  gap: 0.3em;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.bold,
+.italic,
+.underline {
+  text-transform: capitalize;
+}
+
+.bold,
+.italic,
+.underline,
+.line-through,
+.list-btn {
+  font-size: 1.3em;
+  color: var(--btn-line-color);
+}
+
+.bold:hover,
+.italic:hover,
+.underline:hover,
+.line-through:hover,
+.list-btn:hover {
+  background-color: var(--btn-bg-opc);
+}
+
+.bold {
+  font-weight: 700;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.italic {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.underline {
+  text-decoration: underline;
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+.line-through {
+  text-decoration: line-through;
+  grid-column: 4 / 5;
+  grid-row: 2 / 3;
+}
+
+.list-btn {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  padding: 4px;
+}
+
+.list-btn > * {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.list-btn > div:before,
+.list-btn > div:after {
+  content: "";
+  background-color: var(--btn-line-color);
+}
+
+.list-btn > div:before {
+  width: calc(var(--btn-line-h) * 2);
+  height: calc(var(--btn-line-h) * 2);
+  border-radius: 50%;
+}
+
+.list-btn > div:after {
+  width: 11px;
+  height: var(--btn-line-h);
 }
