@@ -24,7 +24,6 @@ aside.notes-container {
   cursor: text;
   box-shadow: 0px 0px 3px var(--textarea);
   border-radius: var(--border-r-md);
-  border-top: 4px solid rgb(102, 168, 37);
 }
 
 button.toggle,

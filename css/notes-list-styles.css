@@ -272,3 +272,28 @@ button {
   width: 11px;
   height: var(--btn-line-h);
 }
+
+.textarea {
+  border-top: 4px solid rgb(102, 168, 37);
+  padding-bottom: calc(1em + 40px);
+  overflow-y: auto;
+}
+
+main {
+  position: relative;
+}
+
+button.pallet {
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  border-radius: 50%;
+  background-color: rgb(102, 168, 37);
+}
+
+button.pallet:hover {
+  opacity: 0.8;
+}
