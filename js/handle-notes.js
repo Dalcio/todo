@@ -9,6 +9,7 @@ const colors = [
   "#fff8dc",
   "#ff7f50",
 ];
+const pallet = document.querySelector("button.pallet");
 
 function createNoteItem() {
   const notes_list = document.querySelector("section.notes-list");
@@ -27,6 +28,8 @@ function createNoteItem() {
   all_notes.push(note_item);
   const created_note_item = createNoteItemEl(note_item);
   notes_list.appendChild(created_note_item);
+  document.querySelector("section.notes-list").scrollTop =
+    document.querySelector("section.notes-list").scrollHeight;
   handleTextArea(id);
 }
 
@@ -57,7 +60,7 @@ function createNoteItemEl({ id, current_color, created_date, note_content }) {
   corner.setAttribute("class", "corner");
 
   /* appending elements */
-  note_item_el.appendChild(top_border)
+  note_item_el.appendChild(top_border);
   note_item_el.appendChild(created_date_el);
   note_item_el.appendChild(note_content_el);
   note_item_el.appendChild(corner);
@@ -72,4 +75,21 @@ function handleCalor(current) {
 
 function handleTextArea(id) {
   const textarea = document.querySelector("div.textarea");
+  const current_note = all_notes.filter(({ id: _id }) => _id === id)[0];
+
+  textarea.textContent = current_note.note_content;
+
+  textarea.style.borderTopColor = current_note.current_color;
+  // document.querySelector(
+  //   `section[id="${id}"] > div.top-border`
+  // ).style.backgroundColor = current_note.current_color;
+
+  pallet.style.backgroundColor = current_note.current_color;
+
+  pallet.setAttribute("id", id);
 }
+
+pallet.addEventListener("click", function (event) {
+  
+  alert("click");
+});
