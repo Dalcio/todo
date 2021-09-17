@@ -233,7 +233,12 @@ button {
 .italic:hover,
 .underline:hover,
 .line-through:hover,
-.list-btn:hover {
+.list-btn:hover,
+.bold[is-active="true"],
+.italic[is-active="true"],
+.underline[is-active="true"],
+.line-through[is-active="true"],
+.list-btn[is-active="true"] {
   background-color: var(--btn-bg-opc);
 }
 
