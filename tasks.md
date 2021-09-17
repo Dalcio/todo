@@ -6,5 +6,5 @@
 - [x] update the notes-list tree with after load
 - [ ] add light theme on notes container at the right of add new note btn
 - [x] save when pallet change the color
-- [ ] change the scroll style
-- [ ] remove the tags from note_item like bold
+- [x] change the scroll style
+- [x] remove the tags from note_item like bold

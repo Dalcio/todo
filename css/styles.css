@@ -1,12 +1,14 @@
 :root {
   /* colors */
   --primary: #222222;
+  --primary-opc: #222222cc;
   --textarea: #333333;
   --corner: #5c5c5c;
   --bg-color: #3f3f3f;
+  --bg-color-op: #3f3f3fcc;
   --text: #ffffff;
   --btn-line-color: #858585;
-  --btn-bg-opc: rgba(133, 133, 133, 0.5);
+  --btn-bg-opc: #85858580;
   /* sizes */
   --border-r-md: 5px;
   --border-r-l: 8px;
@@ -44,4 +46,24 @@ body {
     display: grid;
     grid-template-columns: minmax(auto, 350px) 1fr;
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--textarea);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--bg-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bg-color-op);
 }

@@ -8,21 +8,7 @@ window.addEventListener("load", () => {
   if (all_notes.length === 0) {
     textarea.contentEditable = false;
   } else {
-    // update the note list tree
-    // const notes_list = document.querySelector("section.notes-list");
-    // notes_list.innerHTML = "";
-
     renderNotes(all_notes);
-    // all_notes.reverse().map((note_item, index) => {
-    //   created_note_item = createNoteItemEl(note_item);
-    //   notes_list.insertAdjacentElement("afterbegin", created_note_item);
-    //   document.querySelector("section.notes-list").scrollTop =
-    //     document.querySelector("section.notes-list").scrollHeight;
-    //   if (index === all_notes.length - 1) {
-    //     handleTextArea(note_item.id);
-    //   }
-    // });
-    // all_notes.reverse();
   }
 });
 
@@ -31,7 +17,6 @@ add_new_note.addEventListener("click", function () {
   createNoteItem();
 });
 
-// textarea.addEventListener("input", activeTools);
 textarea.addEventListener("input", function ({ target }) {
   activeTools();
   const note_id = Number(pallet.getAttribute("id"));
@@ -85,8 +70,7 @@ function renderNotes(notes) {
   notes.reverse().map((note_item, index) => {
     created_note_item = createNoteItemEl(note_item);
     notes_list.insertAdjacentElement("afterbegin", created_note_item);
-    document.querySelector("section.notes-list").scrollTop =
-      document.querySelector("section.notes-list").scrollHeight;
+    document.querySelector("section.notes-list").scrollTop = 0;
     if (index === notes.length - 1) {
       handleTextArea(note_item.id);
     }

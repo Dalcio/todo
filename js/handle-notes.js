@@ -30,8 +30,7 @@ function createNoteItem() {
   all_notes.unshift(note_item);
   const created_note_item = createNoteItemEl(note_item);
   notes_list.insertAdjacentElement("afterbegin", created_note_item);
-  document.querySelector("section.notes-list").scrollTop =
-    document.querySelector("section.notes-list").scrollHeight;
+  document.querySelector("section.notes-list").scrollTop = 0;
   handleTextArea(id);
 }
 
