@@ -160,6 +160,7 @@ article.note-item > .created-date {
   padding: 4px 8px;
   text-align: right;
   opacity: 0.7;
+  font-size: small;
 }
 
 article.note-item > p {
@@ -311,7 +312,7 @@ button.pallet {
   right: 1em;
   border-radius: 50%;
   background-color: rgb(102, 168, 37);
-  transition: background-color 0.6s ease-in-out;
+  transition: background-color 0.6s ease-in-out, opacity 0.4s;
 }
 
 button.pallet:hover {
