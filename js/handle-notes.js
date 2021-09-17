@@ -1,4 +1,4 @@
-const all_notes = [];
+let all_notes = [];
 const colors = [
   "#ff8c00",
   "#228B22",
@@ -69,7 +69,11 @@ function createNoteItemEl({ id, current_color, created_date, note_content }) {
 }
 
 function handleCalor(current) {
+  if (typeof current === "string") {
+    current = colors.indexOf(current);
+  }
   current = current === colors.length - 1 ? 0 : current + 1;
+
   return colors[current];
 }
 
@@ -80,9 +84,6 @@ function handleTextArea(id) {
   textarea.textContent = current_note.note_content;
 
   textarea.style.borderTopColor = current_note.current_color;
-  // document.querySelector(
-  //   `section[id="${id}"] > div.top-border`
-  // ).style.backgroundColor = current_note.current_color;
 
   pallet.style.backgroundColor = current_note.current_color;
 
@@ -90,6 +91,23 @@ function handleTextArea(id) {
 }
 
 pallet.addEventListener("click", function (event) {
-  
-  alert("click");
+  if (all_notes.length > 0) {
+    const id = Number(event.currentTarget.getAttribute("id"));
+    const index = all_notes.findIndex(({ id: _id }) => _id === id);
+    let current_note = { ...all_notes[index] };
+    const new_color = handleCalor(current_note.current_color);
+    current_note = { ...current_note, current_color: new_color };
+    all_notes[index] = { ...current_note };
+    updateColorElement(id, new_color);
+  }
 });
+
+function updateColorElement(target_id, new_color) {
+  document.querySelector("div.textarea").style.borderTopColor = new_color;
+
+  const target_query = `article[id="${target_id}"] > div.top-border`;
+  const target_element = document.querySelector(target_query);
+  target_element.style.backgroundColor = new_color;
+
+  pallet.style.backgroundColor = new_color;
+}
