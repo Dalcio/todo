@@ -298,7 +298,7 @@ button {
 }
 
 .textarea {
-  border-top: 4px solid rgb(102, 168, 37);
+  border-top: 4px solid var(--textarea);
   transition: border-top-color 0.6s ease-in-out;
   padding-bottom: calc(1em + 40px);
   overflow-y: auto;

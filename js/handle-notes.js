@@ -25,9 +25,9 @@ function createNoteItem() {
     note_content,
   };
 
-  all_notes.push(note_item);
+  all_notes.unshift(note_item);
   const created_note_item = createNoteItemEl(note_item);
-  notes_list.appendChild(created_note_item);
+  notes_list.insertAdjacentElement("afterbegin", created_note_item);
   document.querySelector("section.notes-list").scrollTop =
     document.querySelector("section.notes-list").scrollHeight;
   handleTextArea(id);
@@ -88,7 +88,7 @@ function handleTextArea(id) {
   const textarea = document.querySelector("div.textarea");
   const current_note = all_notes.filter(({ id: _id }) => _id === id)[0];
 
-  textarea.textContent = current_note.note_content;
+  textarea.innerHTML = current_note.note_content;
 
   textarea.style.borderTopColor = current_note.current_color;
 
@@ -106,6 +106,7 @@ pallet.addEventListener("click", function (event) {
     current_note = { ...current_note, current_color: new_color };
     all_notes[index] = { ...current_note };
     updateColorElement(id, new_color);
+    saveNotes();
   }
 });
 

@@ -26,7 +26,7 @@ list_btn.addEventListener("click", function () {
 });
 
 content_editable.addEventListener("click", activeTools);
-content_editable.addEventListener("input", activeTools);
+
 document.addEventListener("keydown", activeTools);
 
 function activeTools() {
