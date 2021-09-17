@@ -16,13 +16,15 @@ function createNoteItem() {
   const id = new Date().getTime();
   const created_date = new Date().toGMTString().replace(/ GMT/, "");
   const current_color = handleCalor(-1);
-  const note_content = "some content";
+  const note_content = "";
+  const note_text = "";
 
   const note_item = {
     id,
     created_date,
     current_color,
     note_content,
+    note_text,
   };
 
   all_notes.unshift(note_item);
@@ -33,7 +35,7 @@ function createNoteItem() {
   handleTextArea(id);
 }
 
-function createNoteItemEl({ id, current_color, created_date, note_content }) {
+function createNoteItemEl({ id, current_color, created_date, note_text }) {
   /* note item */
   const note_item_el = document.createElement("article");
   note_item_el.setAttribute("class", "note-item");
@@ -53,7 +55,7 @@ function createNoteItemEl({ id, current_color, created_date, note_content }) {
 
   /* note content */
   const note_content_el = document.createElement("p");
-  note_content_el.textContent = note_content;
+  note_content_el.textContent = note_text;
 
   /* corner */
   const corner = document.createElement("div");

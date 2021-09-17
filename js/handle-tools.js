@@ -27,7 +27,9 @@ list_btn.addEventListener("click", function () {
 
 content_editable.addEventListener("click", activeTools);
 
-document.addEventListener("keydown", activeTools);
+content_editable.addEventListener("focus", () => {
+  document.addEventListener("keydown", activeTools);
+});
 
 function activeTools() {
   const current_node = getSelectionStart();

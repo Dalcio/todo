@@ -9,19 +9,20 @@ window.addEventListener("load", () => {
     textarea.contentEditable = false;
   } else {
     // update the note list tree
-    const notes_list = document.querySelector("section.notes-list");
-    notes_list.innerHTML = "";
+    // const notes_list = document.querySelector("section.notes-list");
+    // notes_list.innerHTML = "";
 
-    all_notes.reverse().map((note_item, index) => {
-      created_note_item = createNoteItemEl(note_item);
-      notes_list.insertAdjacentElement("afterbegin", created_note_item);
-      document.querySelector("section.notes-list").scrollTop =
-        document.querySelector("section.notes-list").scrollHeight;
-      if (index === all_notes.length - 1) {
-        handleTextArea(note_item.id);
-      }
-    });
-    all_notes.reverse();
+    renderNotes(all_notes);
+    // all_notes.reverse().map((note_item, index) => {
+    //   created_note_item = createNoteItemEl(note_item);
+    //   notes_list.insertAdjacentElement("afterbegin", created_note_item);
+    //   document.querySelector("section.notes-list").scrollTop =
+    //     document.querySelector("section.notes-list").scrollHeight;
+    //   if (index === all_notes.length - 1) {
+    //     handleTextArea(note_item.id);
+    //   }
+    // });
+    // all_notes.reverse();
   }
 });
 
@@ -40,22 +41,25 @@ textarea.addEventListener("input", function ({ target }) {
   const element_to_update = all_notes.splice(el_index, 1)[0];
 
   element_to_update.note_content = target.innerHTML;
+  element_to_update.note_text = target.textContent.substring(0, 55);
   element_to_update.created_date = created_date;
   all_notes.unshift(element_to_update);
 
   /* getting note element */
   const target_element = document.querySelector(`article[id="${note_id}"]`);
   const new_index = all_notes.findIndex(({ id }) => id === note_id);
+
   if (new_index !== el_index) {
     updateTree(target_element, true);
   }
+
   target_element.children[1].textContent = element_to_update.created_date;
-  target_element.children[2].textContent = element_to_update.note_content
-    .replace(/&nbsp;/, " ")
-    .substring(0, 55);
+  target_element.children[2].textContent = element_to_update.note_text;
+
   if (new_index !== el_index) {
     updateTree(target_element);
   }
+
   saveNotes();
 });
 
@@ -67,11 +71,24 @@ function updateTree(child, remove) {
   const notes_list =
     (remove && child.parentNode) ||
     document.querySelector("section.notes-list");
-  debugger;
   if (remove) {
     notes_list.removeChild(child);
-    debugger;
   } else {
     notes_list.insertAdjacentElement("afterbegin", child);
   }
+}
+
+function renderNotes(notes) {
+  const notes_list = document.querySelector("section.notes-list");
+  notes_list.innerHTML = "";
+
+  notes.reverse().map((note_item, index) => {
+    created_note_item = createNoteItemEl(note_item);
+    notes_list.insertAdjacentElement("afterbegin", created_note_item);
+    document.querySelector("section.notes-list").scrollTop =
+      document.querySelector("section.notes-list").scrollHeight;
+    if (index === notes.length - 1) {
+      handleTextArea(note_item.id);
+    }
+  });
 }
