@@ -65,6 +65,13 @@ function createNoteItemEl({ id, current_color, created_date, note_content }) {
   note_item_el.appendChild(note_content_el);
   note_item_el.appendChild(corner);
 
+  /* click event */
+
+  note_item_el.addEventListener("click", function (event) {
+    const target_id = Number(event.currentTarget.getAttribute("id"));
+    handleTextArea(target_id);
+  });
+
   return note_item_el;
 }
 
