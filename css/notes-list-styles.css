@@ -106,7 +106,7 @@ button.search-submit {
   position: relative;
   background-color: transparent;
   padding: 0;
-  transition: background-color 0.3s;
+  transition: background-color 0.6s ease-in-out;
 }
 
 button.search-submit:hover {
@@ -186,6 +186,7 @@ article.note-item > .note-body {
   background-color: var(--textarea);
   grid-area: 2 / 2 / 4 / -2;
   border-bottom-left-radius: var(--border-r-md);
+  transition: background-color 0.6s ease-in-out;
 }
 
 article.note-item > .created-date {
@@ -351,7 +352,7 @@ button {
 
 .textarea {
   border-top: 0.3rem solid var(--textarea);
-  transition: border-top-color 0.6s ease-in-out;
+  transition: border-top-color 0.6s ease-in-out, background-color 0.6s ease-in-out;
   padding-bottom: calc(1em + 40px);
   overflow-y: auto;
 }

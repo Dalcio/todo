@@ -86,6 +86,7 @@ function renderNotes(notes) {
     document.querySelector("section.notes-list").scrollTop = 0;
     changeElementThemeColor(created_note_item);
     if (index === notes.length - 1) {
+      changeTextareaThemeColor(created_note_item);
       handleTextArea(note_item.id);
     }
   });

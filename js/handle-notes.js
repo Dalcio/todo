@@ -28,6 +28,8 @@ function createNoteItem() {
 
   all_notes.unshift(note_item);
   const created_note_item = createNoteItemEl(note_item);
+  changeElementThemeColor(created_note_item);
+  changeTextareaThemeColor(created_note_item);
   notes_list.insertAdjacentElement("afterbegin", created_note_item);
   document.querySelector("section.notes-list").scrollTop = 0;
   handleTextArea(id);
@@ -73,6 +75,10 @@ function createNoteItemEl({ id, current_color, created_date, note_content }) {
     all_notes.splice(index, 1);
     renderNotes(all_notes);
     saveNotes();
+    if (all_notes.length === 0) {
+      textarea.contentEditable = false;
+      textarea.textContent = "";
+    }
   });
 
   /* appending elements */
@@ -125,6 +131,8 @@ pallet.addEventListener("click", function (event) {
     current_note = { ...current_note, current_color: new_color };
     all_notes[index] = { ...current_note };
     updateColorElement(id, new_color);
+    changeTextareaThemeColor(document.querySelector(`article[id="${id}"]`));
+    changeElementThemeColor(document.querySelector(`article[id="${id}"]`));
     saveNotes();
   }
 });
