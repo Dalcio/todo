@@ -76,6 +76,7 @@ function updateTree(child, remove) {
 }
 
 function renderNotes(notes) {
+  notes = [...notes];
   const notes_list = document.querySelector("section.notes-list");
   notes_list.innerHTML = "";
 

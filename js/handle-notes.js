@@ -63,12 +63,25 @@ function createNoteItemEl({ id, current_color, created_date, note_content }) {
   const corner = document.createElement("div");
   corner.setAttribute("class", "corner");
 
+  const remove = document.createElement("button");
+  remove.setAttribute("class", "remove_note");
+  remove.textContent = "🗑";
+
+  remove.addEventListener("click", function (event) {
+    const id = Number(event.target.parentNode.getAttribute("id"));
+    const index = all_notes.findIndex(({ id: _id }) => id === _id);
+    all_notes.splice(index, 1);
+    renderNotes(all_notes);
+    saveNotes();
+  });
+
   /* appending elements */
   note_item_el.appendChild(top_border);
   note_item_el.appendChild(created_date_el);
   note_item_el.appendChild(note_content_el);
   note_item_el.appendChild(note_body_el);
   note_item_el.appendChild(corner);
+  note_item_el.appendChild(remove);
 
   /* click event */
 
