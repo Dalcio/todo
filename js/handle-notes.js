@@ -6,7 +6,6 @@ const colors = [
   "#ff6347",
   "#70cd32",
   "#ffc0cb",
-  "#fff8dc",
   "#ff7f50",
 ];
 const pallet = document.querySelector("button.pallet");
@@ -34,7 +33,7 @@ function createNoteItem() {
   handleTextArea(id);
 }
 
-function createNoteItemEl({ id, current_color, created_date, note_text }) {
+function createNoteItemEl({ id, current_color, created_date, note_content }) {
   /* note item */
   const note_item_el = document.createElement("article");
   note_item_el.setAttribute("class", "note-item");
@@ -52,9 +51,13 @@ function createNoteItemEl({ id, current_color, created_date, note_text }) {
   created_date_el.setAttribute("class", "created-date");
   created_date_el.textContent = created_date;
 
+  /* note body */
+  const note_body_el = document.createElement("div");
+  note_body_el.setAttribute("class", "note-body");
+
   /* note content */
   const note_content_el = document.createElement("p");
-  note_content_el.textContent = note_text;
+  note_content_el.innerHTML = note_content;
 
   /* corner */
   const corner = document.createElement("div");
@@ -64,6 +67,7 @@ function createNoteItemEl({ id, current_color, created_date, note_text }) {
   note_item_el.appendChild(top_border);
   note_item_el.appendChild(created_date_el);
   note_item_el.appendChild(note_content_el);
+  note_item_el.appendChild(note_body_el);
   note_item_el.appendChild(corner);
 
   /* click event */
@@ -71,6 +75,7 @@ function createNoteItemEl({ id, current_color, created_date, note_text }) {
   note_item_el.addEventListener("click", function (event) {
     const target_id = Number(event.currentTarget.getAttribute("id"));
     handleTextArea(target_id);
+    changeTextareaThemeColor(note_item_el);
   });
 
   return note_item_el;

@@ -1,10 +1,40 @@
 .notes-container {
   grid-template-rows: 28px 40px 1fr;
   grid-template-areas:
-    "new-note"
+    "general-tools"
     "search"
     "notes-list";
   gap: 1em;
+}
+
+.notes-container > header.general-tools {
+  grid-area: general-tools;
+  display: grid;
+  grid-template-columns: 28px 28px;
+  grid-template-areas: "new-note change-theme";
+  justify-content: space-between;
+}
+
+button.change-theme {
+  border: none;
+  grid-area: change-theme;
+  background-color: var(--corner);
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.5s ease-in;
+  box-shadow: 2px 2px 5px var(--corner); /* when is dark */
+
+  /* box-shadow: -3px -3px 3px var(--sun); when is light */
+}
+
+button.change-theme > .sun {
+  transform: translate(-25%, -25%);
+  width: 28px;
+  height: 28px;
+  transition: background-color 0.5s ease-in, transform;
+  background-color: var(--primary);
+  border-radius: 50%;
 }
 
 button.add-new-note {
@@ -117,11 +147,11 @@ article.note-item:not(:last-of-type) {
 }
 
 article.note-item {
-  height: 100px;
-  max-height: 150px;
+  min-height: 100px;
+  max-height: 200px;
   cursor: pointer;
   display: grid;
-  grid-template-rows: 1em auto 1fr;
+  grid-template-rows: 0.3rem auto 1fr;
   grid-template-columns: 0.6em 1fr 40px 0.6em;
   animation: show-note-item 0.4s ease-in-out;
   transition: opacity 0.2s ease;
@@ -144,14 +174,18 @@ article.note-item:hover {
 
 article.note-item > .top-border {
   transition: background-color 0.6s ease-in-out;
-  background-color: rgb(102, 168, 37);
-  grid-area: 1 / 1 / 2 / -1;
+  grid-area: 1 / 2 / 2 / -2;
+  border-radius: var(--border-r-sm);
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  /* display: none; */
 }
 
-article.note-item:after {
+article.note-item > .note-body {
   content: "";
   background-color: var(--textarea);
   grid-area: 2 / 2 / 4 / -2;
+  border-bottom-left-radius: var(--border-r-md);
 }
 
 article.note-item > .created-date {
@@ -167,6 +201,7 @@ article.note-item > p {
   grid-area: 3 / 2 / 4 / -3;
   z-index: 1;
   padding: 0.5em 1em;
+  word-wrap: wrap;
 }
 
 article.note-item > .corner {
@@ -176,7 +211,7 @@ article.note-item > .corner {
   z-index: 1;
   overflow: hidden;
   position: relative;
-  background-color: var(--corner);
+  background-color: var(--primary);
   border-top-left-radius: var(--border-r-l);
 }
 
@@ -184,9 +219,10 @@ article.note-item > .corner:before {
   position: absolute;
   content: "";
   height: 50px;
-  width: 60px;
-  background-color: var(--primary);
-  transform-origin: 50px 23px;
+  width: 72px;
+  background-color: var(--corner);
+  /* transform-origin: 50px 23px; */
+  transform-origin: -8px 52px;
   transform: rotate(-45deg);
 }
 
@@ -298,7 +334,7 @@ button {
 }
 
 .textarea {
-  border-top: 4px solid var(--textarea);
+  border-top: 0.3rem solid var(--textarea);
   transition: border-top-color 0.6s ease-in-out;
   padding-bottom: calc(1em + 40px);
   overflow-y: auto;

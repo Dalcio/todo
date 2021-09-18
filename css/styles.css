@@ -9,7 +9,9 @@
   --text: #ffffff;
   --btn-line-color: #858585;
   --btn-bg-opc: #85858580;
+  --sun: #e5ecbb;
   /* sizes */
+  --border-r-sm: 3px;
   --border-r-md: 5px;
   --border-r-l: 8px;
   --btn-line-h: 2px;
@@ -39,6 +41,7 @@ body {
   body {
     display: grid;
     grid-template-columns: auto minmax(700px, 1140px) auto;
+    transition: background-color 0.5s;
   }
 
   .page-container {

@@ -3,6 +3,16 @@ const textarea = document.querySelector("div.textarea");
 
 window.addEventListener("load", () => {
   const data = window.localStorage["save_notes"];
+  const theme =
+    (window.localStorage["save_theme"] && window.localStorage["save_theme"]) ||
+    "dark";
+
+  if (theme === "light") {
+    window.theme = "dark";
+  } else {
+    window.theme = "light";
+  }
+
   all_notes = [...JSON.parse(data)];
 
   if (all_notes.length === 0) {
@@ -10,6 +20,8 @@ window.addEventListener("load", () => {
   } else {
     renderNotes(all_notes);
   }
+
+  changeTheme();
 });
 
 add_new_note.addEventListener("click", function () {
@@ -71,6 +83,7 @@ function renderNotes(notes) {
     created_note_item = createNoteItemEl(note_item);
     notes_list.insertAdjacentElement("afterbegin", created_note_item);
     document.querySelector("section.notes-list").scrollTop = 0;
+    changeElementThemeColor(created_note_item);
     if (index === notes.length - 1) {
       handleTextArea(note_item.id);
     }
