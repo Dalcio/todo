@@ -19,6 +19,7 @@ window.addEventListener("load", () => {
     textarea.contentEditable = false;
     emptyNotes();
   } else {
+    pallet.style.visibility = "visible";
     renderNotes(all_notes);
   }
 
@@ -103,4 +104,5 @@ function emptyNotes() {
     textarea.style.backgroundColor = "#B2B6C0";
     textarea.style.borderTopColor = "#B2B6C0";
   }
+  pallet.style.visibility = "hidden";
 }

@@ -11,6 +11,7 @@ const colors = [
 const pallet = document.querySelector("button.pallet");
 
 function createNoteItem() {
+  pallet.style.visibility = "visible";
   const notes_list = document.querySelector("section.notes-list");
   const id = new Date().getTime();
   const created_date = new Date().toGMTString().replace(/ GMT/, "");
