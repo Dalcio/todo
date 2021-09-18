@@ -33,6 +33,10 @@ function changeTheme() {
   const sun = document.querySelector("button > div.sun");
   const notes = document.querySelectorAll("article.note-item");
 
+  if (all_notes.length === 0) {
+    emptyNotes();
+  }
+
   if (window.theme === "dark") {
     window.theme = "light";
     window.localStorage["save_theme"] = "light";

@@ -78,6 +78,7 @@ function createNoteItemEl({ id, current_color, created_date, note_content }) {
     if (all_notes.length === 0) {
       textarea.contentEditable = false;
       textarea.textContent = "";
+      emptyNotes();
     }
   });
 

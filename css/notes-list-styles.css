@@ -377,3 +377,10 @@ button.pallet {
 button.pallet:hover {
   opacity: 0.8;
 }
+
+.is-empty-notes {
+  text-align: center;
+  font-size: x-large;
+  opacity: 0.7;
+  margin-top: 40px;
+}
