@@ -79,7 +79,16 @@ function createNoteItemEl({ id, current_color, created_date, note_content }) {
     if (all_notes.length === 0) {
       textarea.contentEditable = false;
       textarea.textContent = "";
-      emptyNotes();
+      const text = "Tap the new note button above at left to create a new note";
+      textarea.innerHTML = `<p class="is-empty-notes">${text}</p>`;
+      if (window.theme !== "light") {
+        textarea.style.backgroundColor = "var(--textarea)";
+        textarea.style.borderTopColor = "var(--textarea)";
+      } else {
+        textarea.style.backgroundColor = "#B2B6C0";
+        textarea.style.borderTopColor = "#B2B6C0";
+      }
+      pallet.style.visibility = "hidden";
     }
   });
 
